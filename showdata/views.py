@@ -10,8 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 from showdata import models
-
-
+from users.views import check_login
 
 
 def test22(request):
@@ -39,7 +38,7 @@ def test22(request):
     # students.count()总数据量，layui的table模块要接受的格式
     students = {"code": 0, "msg": "", "count": res.count(), "data": house_info}
     return JsonResponse(students)
-
+@check_login
 def test3(request):
     return render(request, 'table2.html')
 
