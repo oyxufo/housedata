@@ -49,28 +49,22 @@ def check_login(func):
 def register(request):
     user = models.user()
     if request.method == "POST":
-        name = request.POST.get("username")
-        pwd = request.POST.get("password")
-        print(name)
-        print(pwd)
-        try:
-            user = models.user.objects.get(name=name)
-        except Exception as e:
-            print(e)
-            messages.success(request, "用户名错误")
+        user.name = request.POST.get("name")
+        user.password = request.POST.get("password")
+        againpwd = request.POST.get("password2")
+        if againpwd!=user.password:
+            messages.success(request, "两次密码不一致")
+            return render(request, "register.html")
+        if models.user.objects.filter(name=user.name).exists() == False:
+            user.save()
             return render(request, "login.html")
-        if user.password==pwd:
-            response = redirect('/show/test3/')
-            response.set_signed_cookie("login", "yes", salt='SSS', max_age=60 * 60)
-            return response
         else:
-            messages.success(request, "密码错误")
-            return render(request, "login.html")
-
+            messages.success(request, "用户存在")
+            return render(request, "register.html")
     elif request.method == "GET":
-        return render(request, "login.html")
+        return render(request, "register.html")
 
 
 
-def page_not_found(request):
+def page_not_found(request,exception):
     return render(request,'404.html')
