@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student</title>
+
+    {#  注意引入文件的方式  #}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    {#  设置网页标题图标  #}
+    <!--link rel="icon" type="image/x-icon" href="/static/media/icon.ico" /--!>
+
+</head>
+<body>
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>CRUD</h1>
+        </blockquote>
+        {# 查询学生模块 #}
+        <form action="/search" method="get">
+            <input placeholder="学生名" name="q" id="q">
+            <input type="submit" class="layui-btn" value="搜索">
+        </form>
+
+        {# 显示所有学生模块 #}
+        <table class="layui-table">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+
+            <th>标题</th>
+            <th>信息</th>
+            <th>价格</th>
+            <th>每平方米</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for house in data%}
+            <tr>
+                <td>{{house.title}}</td>
+                <td>{{house.msg}}</td>
+                <td>{{house.price}}</td>
+                <td>{{house.per_meter}}</td>
+
+                <td>
+                    {# 修改学生模块 #}
+                    <a href="/showdata/change/?id={{ house.id }}" class="layui-btn layui-btn-normal">
+                        <i class="layui-icon">&#xe642;</i>修改
+                    </a>
+                </td>
+                <td>
+                    {# 删除学生模块 #}
+                    <a href="/showdata/delete/?id={{ house.id }}" class="layui-btn layui-btn-danger">
+                        <i class="layui-icon">&#xe640;</i>删除
+                    </a>
+                </td>
+            </tr>
+        {%endfor%}
+      </tbody>
+        </table>
+
+        {# 添加学生模块 #}
+        <a href="/showdata/add/" class="layui-btn layui-btn-warm">
+            <i class="layui-icon">&#xe654;</i> 添加
+        </a>
+    </div>
+</body>
+</html>

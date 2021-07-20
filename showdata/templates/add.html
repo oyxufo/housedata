@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="layui-container">
+        <blockquote class="layui-elem-quote">
+            <h1>add Student</h1>
+        </blockquote>
+
+        <div class="layui-row" style="margin: 40px;">
+
+            <div class="layui-col-md5">
+                <form action="/showdata/add/" method="post" enctype="multipart/form-data"/>
+                    <hr class="layui-bg-green">
+                    <input type="text" name="Name" id="Name" placeholder="学生姓名" class="layui-input"/>
+                    <hr class="layui-bg-green">
+					<input type="text" name="Genger" id="Genger" placeholder="学生性别" class="layui-input"/>
+                    <hr class="layui-bg-green">
+					<input type="text" name="Address" id="Address" placeholder="学生地址" class="layui-input"/>
+                    <hr class="layui-bg-green">
+                    <input type="text" name="Stuclass" id="Stuclass" placeholder="学生班级" class="layui-input"/>
+                    <hr class="layui-bg-green">
+                    <input type="submit" value="添加" class="layui-btn"/>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
