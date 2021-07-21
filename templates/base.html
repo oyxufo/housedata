@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/layui/css/public.css" media="all">
+</head>
+
+
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!--网页头部-->
+    <div class="layui-header">
+        <div class="layui-logo">房地产管理系统</div>
+
+        <ul class="layui-nav layui-layout-right">
+            <!--<li class="layui-nav-item">
+                <a href="">控制台<span class="layui-badge">9</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">个人中心<span class="layui-badge-dot"></span></a>
+            </li>-->
+            <li class="layui-nav-item">
+                <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/users/setinfo/">修改信息</a></dd>
+                    <dd><a href="/users/logout/">注销</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <!--侧边栏-->
+    <div class="layui-side layui-bg-black layuimini-menu-left">
+        <ul class="layui-nav layui-nav-tree layui-left-nav-tree layui-this" id="multi_module_0">
+
+            <!-- 二手信息 -->
+            <li class="layui-nav-item menu-li  undefined"><a target="_self" href="javascript:;"> <i
+                    class="fa fa-home"></i> <span class="layui-left-nav">二手房产信息管理</span><span
+                    class="layui-nav-more"></span></a>
+                <dl class="layui-nav-child ">
+                    <dd class="menu-dd  "><a href="/show/to_add/" target="_self"> <i
+                            class="fa fa-tachometer"></i> <span class="layui-left-nav">增加二手房产信息</span></a></dd>
+                    <dd class="menu-dd  "><a href="/show/test3/" target="_self"> <i
+                            class="fa fa-tachometer"></i> <span class="layui-left-nav">二手房产信息展示</span></a></dd>
+                    <dd class="menu-dd  "><a href="javascript:;" layuimini-href="page/welcome-3.html" target="_self"> <i
+                            class="fa fa-tachometer"></i> <span class="layui-left-nav"> 主页三</span></a></dd>
+                </dl>
+            </li>
+            <!-- 新房信息 -->
+            <li class="layui-nav-item menu-li  undefined"><a target="_self" href="javascript:;"> <i
+                    class="fa fa-home"></i> <span class="layui-left-nav">新房楼盘信息管理</span><span
+                    class="layui-nav-more"></span></a>
+                <dl class="layui-nav-child ">
+                    <dd class="menu-dd  "><a href="/shownew/to_add/" target="_self"> <i
+                            class="fa fa-tachometer"></i> <span class="layui-left-nav">增加楼盘信息</span></a></dd>
+                    <dd class="menu-dd  "><a href="/shownew/newtest3/" target="_self"> <i
+                            class="fa fa-tachometer"></i> <span class="layui-left-nav">楼盘信息展示</span></a></dd>
+                    <dd class="menu-dd  "><a href="javascript:;" layuimini-href="page/welcome-3.html" target="_self"> <i
+                            class="fa fa-tachometer"></i> <span class="layui-left-nav"> 主页三</span></a></dd>
+                </dl>
+            </li>
+
+
+            <li class="layui-nav-item menu-li  undefined"><a layuimini-href="page/menu.html" target="_self"
+                                                             href="javascript:;"> <i class="fa fa-window-maximize"></i>
+                <span class="layui-left-nav">菜单管理</span></a></li>
+            <li class="layui-nav-item menu-li  undefined"><a layuimini-href="page/setting.html" target="_self"
+                                                             href="javascript:;"> <i class="fa fa-gears"></i> <span
+                    class="layui-left-nav">系统设置</span></a></li>
+            <li class="layui-nav-item menu-li  undefined"><a layuimini-href="page/table.html" target="_self"
+                                                             href="javascript:;"> <i class="fa fa-file-text"></i> <span
+                    class="layui-left-nav">表格示例</span></a></li>
+            <li class="layui-nav-item menu-li  undefined"><a target="_self" href="javascript:;"> <i
+                    class="fa fa-calendar"></i> <span class="layui-left-nav">表单示例</span><span
+                    class="layui-nav-more"></span></a>
+                <dl class="layui-nav-child ">
+                    <dd class="menu-dd  "><a href="javascript:;" layuimini-href="page/form.html" target="_self"> <i
+                            class="fa fa-list-alt"></i> <span class="layui-left-nav"> 普通表单</span></a></dd>
+                    <dd class="menu-dd  "><a href="javascript:;" layuimini-href="page/form-step.html" target="_self"> <i
+                            class="fa fa-navicon"></i> <span class="layui-left-nav"> 分步表单</span></a></dd>
+                </dl>
+            </li>
+
+
+            <span class="layui-nav-bar" style="top: 0px; height: 0px; opacity: 0;"></span></ul>
+    </div>
+    <!--主体部分-->
+    <div class="layui-body">
+
+        <div class="layui-anim layui-anim-scale layuimini-main">
+
+            {% block body %}
+
+            {% endblock %}
+
+        </div>
+
+    </div>
+</div>
+
+
+
+{% block script %}
+
+{% endblock %}
+</body>
+
+
+</html>

@@ -22,6 +22,7 @@ urlpatterns = [
     path('test22/',showdata.views.test22),
     path('deletedata/',showdata.views.deletedata),
     path('adddata/',showdata.views.adddata),
+    path('delete_one_data/',showdata.views.delete_one_data),
 
 
 ]

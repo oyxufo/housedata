@@ -80,14 +80,22 @@ def deletedata(request):
     if request.method == 'POST':
         # print(request.body)
         datas = json.loads(request.body)
-        print(datas)
+        # print(datas)
         for i in datas:
             models.house.objects.filter(id=i["id"]).delete()
         data = {"code": 200, "msg": "cg", "count": 1, "status":200}
         return HttpResponse(json.dumps(data), content_type="application/json")
 
 
-
+@csrf_exempt
+def delete_one_data(request):
+    if request.method == 'POST':
+        # print(request.body)
+        data = json.loads(request.body)
+        # print(data)
+        models.house.objects.filter(id=data["id"]).delete()
+        data = {"code": 200, "msg": "cg", "count": 1, "status":200}
+        return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 
